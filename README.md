@@ -1,2 +1,2 @@
 # 2021_web
-Some small web project.
+Some web projects.
