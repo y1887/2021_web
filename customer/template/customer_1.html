@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Order </title>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        media="screen"
+        href="customer_1.css"
+    />
+	<meta charset="utf-8">
+</head>
+<body>
+    <div class="title">
+        目前共消費<input type="text" id="show">
+    </div>
+    <div class="container">
+        <p id="ordered_header"> 品項： </p>
+        <div class="product">
+            <label for="myCheck">A: 10元</label>
+            <input type="checkbox" id="myCheck" onclick="Calculate()">
+            <br>
+            <label for="myCheck">B: 20元</label> 
+            <input type="checkbox" id="myCheck2" onclick="Calculate()">
+            <br>
+            <label for="myCheck">C: 30元</label> 
+            <input type="checkbox" id="myCheck3" onclick="Calculate()">
+            <br>
+            <label for="myCheck">D: 40元</label> 
+            <input type="checkbox" id="myCheck4" onclick="Calculate()">
+            <br>
+            <label for="myCheck">E: 50元</label> 
+            <input type="checkbox" id="myCheck5" onclick="Calculate()">
+            <br>
+            <label for="myCheck">F: 60元</label> 
+            <input type="checkbox" id="myCheck6" onclick="Calculate()">
+        </div>
+    </div>
+    <div class="buttom">
+        <div class="show_total">
+            共 <input type="text" id="show7"> 元
+            <input type="button" value="送出">
+        </div>
+        <input type="text" id="show1">
+        <input type="text" id="show2">
+        <br>
+        <input type="text" id="show3">
+        <input type="text" id="show4">
+        <br>
+        <input type="text" id="show5">
+        <input type="text" id="show6">
+    </div>
+
+
+<script>
+
+function Calculate() 
+{
+    var price = [10, 20, 30, 40, 50, 60];
+    var name = ['A', 'B', 'C', 'D', 'E', 'F'];
+    var sum=0;
+    var checkBox = [];
+    var show = [];
+
+    checkBox[0] = document.getElementById("myCheck");
+    checkBox[1] = document.getElementById("myCheck2");
+    checkBox[2] = document.getElementById("myCheck3");
+    checkBox[3] = document.getElementById("myCheck4");
+    checkBox[4] = document.getElementById("myCheck5");
+    checkBox[5] = document.getElementById("myCheck6");
+
+
+    show[0] = document.getElementById("show");
+    show[7] = document.getElementById("show7");
+
+    show[1] = document.getElementById("show1");
+    show[2] = document.getElementById("show2");
+    show[3] = document.getElementById("show3");
+    show[4] = document.getElementById("show4");
+    show[5] = document.getElementById("show5");
+    show[6] = document.getElementById("show6");
+  
+    var idx=1;
+    var num_checked = 0
+    for (var i=0; i<6; i++){
+        if (checkBox[i].checked == true){
+        	    show[idx].value = name[i] + " : " + price[i] + "元";
+            idx++;
+            sum+=price[i];
+            num_checked ++;
+        } 
+    }
+    for (var i=6; i > num_checked; i--){
+        show[i].value = ""
+    }
+
+    show[0].value=sum + " 元";
+    show[7].value=sum;
+}
+</script>
+
+</body>
+</html>
